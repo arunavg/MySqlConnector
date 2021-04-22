@@ -510,6 +510,12 @@ namespace MySqlConnector.Core
 				payload = await ReceiveReplyAsync(ioBehavior, cancellationToken).ConfigureAwait(false);
 				OkPayload.Create(payload.Span, SupportsDeprecateEof, SupportsSessionTrack);
 
+				//Arunav setting Sql_Mode
+				await SendAsync(s_setSqlMode, ioBehavior, cancellationToken).ConfigureAwait(false);
+				payload = await ReceiveReplyAsync(ioBehavior, cancellationToken).ConfigureAwait(false);
+				OkPayload.Create(payload.Span, SupportsDeprecateEof, SupportsSessionTrack);
+				//]
+				
 				if (ShouldGetRealServerDetails(cs))
 					await GetRealServerDetailsAsync(ioBehavior, CancellationToken.None).ConfigureAwait(false);
 
@@ -578,6 +584,12 @@ namespace MySqlConnector.Core
 				payload = await ReceiveReplyAsync(ioBehavior, cancellationToken).ConfigureAwait(false);
 				OkPayload.Create(payload.Span, SupportsDeprecateEof, SupportsSessionTrack);
 
+				//Arunav setting Sql_Mode
+				await SendAsync(s_setSqlMode, ioBehavior, cancellationToken).ConfigureAwait(false);
+				payload = await ReceiveReplyAsync(ioBehavior, cancellationToken).ConfigureAwait(false);
+				OkPayload.Create(payload.Span, SupportsDeprecateEof, SupportsSessionTrack);
+				//]
+				
 				return true;
 			}
 			catch (IOException ex)
@@ -1736,6 +1748,10 @@ namespace MySqlConnector.Core
 		static readonly PayloadData s_setNamesUtf8Payload = QueryPayload.Create("SET NAMES utf8;");
 		static readonly PayloadData s_setNamesUtf8mb4Payload = QueryPayload.Create("SET NAMES utf8mb4;");
 
+		//Arunav added SET SESSION SQL_MODE='ANSI,NO_BACKSLASH_ESCAPES';
+		static readonly PayloadData s_setSqlMode = QueryPayload.Create("SET SESSION SQL_MODE='ANSI,NO_BACKSLASH_ESCAPES';");
+		//]
+		
 		readonly object m_lock;
 		readonly object?[] m_logArguments;
 		readonly ArraySegmentHolder<byte> m_payloadCache;
