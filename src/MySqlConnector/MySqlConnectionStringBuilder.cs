@@ -706,7 +706,7 @@ namespace MySqlConnector
 
 			AddOption(ConvertZeroDateTime = new(
 				keys: new[] { "Convert Zero Datetime", "ConvertZeroDateTime" },
-				defaultValue: false));
+				defaultValue: true)); //Arunav changed default to true from false
 
 			AddOption(DateTimeKind = new(
 				keys: new[] { "DateTimeKind" },
@@ -742,11 +742,11 @@ namespace MySqlConnector
 
 			AddOption(NoBackslashEscapes = new(
 				keys: new[] { "No Backslash Escapes", "NoBackslashEscapes" },
-				defaultValue: false));
+				defaultValue: true)); //Arunav changed default to true from false
 
 			AddOption(OldGuids = new(
 				keys: new[] { "Old Guids", "OldGuids" },
-				defaultValue: false));
+				defaultValue: true)); //Arunav changed default to true from false
 
 			AddOption(PersistSecurityInfo = new(
 				keys: new[] { "Persist Security Info", "PersistSecurityInfo" },
