@@ -1,4 +1,7 @@
-# Async MySQL Connector for .NET and .NET Core
+# ANSI MySQL Connector for .NET and .NET Core
+
+This fork is focused on creating default ANSI standard compliant MySQL Connector for .Net and .Net Core. 
+Further releases in this fork are particularly regressed on Ubuntu/Debian target platforms. 
 
 This is an [ADO.NET](https://msdn.microsoft.com/en-us/library/e80y5yhx.aspx) data
 provider for [MySQL](https://www.mysql.com/). It provides implementations of
