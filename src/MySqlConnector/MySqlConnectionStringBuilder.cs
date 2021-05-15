@@ -746,7 +746,7 @@ namespace MySqlConnector
 
 			AddOption(OldGuids = new(
 				keys: new[] { "Old Guids", "OldGuids" },
-				defaultValue: true)); //Arunav changed default to true from false
+				defaultValue: true)); //Arunav changed default to true from false to avoid id values being converted to guid object
 
 			AddOption(PersistSecurityInfo = new(
 				keys: new[] { "Persist Security Info", "PersistSecurityInfo" },
